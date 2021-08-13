@@ -39,14 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'perfocal',
+    'recordkeepingapp',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -74,31 +74,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Base.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+ # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+DATABASES ={
+    'default' :  {
+        'ENGINE':'django.db.bakends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
 
-local = 0
-
-if local == 0:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'postgres',
-            'USER': 'postgres',
-            'PASSWORD': 'admin',
-            'HOST': 'localhost'
-        }
     }
-if local == 1:
-    LOCAL_POSTGRES = 'postgres://a9s0283608990e4f378eeddcc917c2428b687acf4a3:a9s22ecab00340ebe65b7bdba7a1df5568c8f8262e4@pod555779-psql-master-alias.node.dc1.a9ssvc:5432/pod555779'
-    DATABASES = {}
-    DATABASES['default'] = dj_database_url.config(default=LOCAL_POSTGRES)
-
-if local == 2:
-    LOCAL_POSTGRES = 'postgres://a9sbd76381f99c520c02aa55a58fcb702fdfaa6c124:a9s64fe547514df8abb1d9d368a1b06d280bdb7af04@pod555779-psql-master-alias.node.dc1.a9ssvc:5432/pod555779'
-    DATABASES = {}
-    DATABASES['default'] = dj_database_url.config(default=LOCAL_POSTGRES)
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -132,15 +115,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-os.environ['MINDSPHERE_CLIENT_ID'] = 'preindev-perfocal-v1.0.0'
-os.environ['MINDSPHERE_CLIENT_SECRET'] = '8nfML0XtSTqc6B8My5NAToGIxoYyTvLPeHiiE4XrLGh'
-os.environ['MINDSPHERE_TENANT'] = 'preindev'
-os.environ['MDSP_HOST_TENANT'] = 'preindev'
-os.environ['MDSP_USER_TENANT'] = 'preindev'
-os.environ['MDSP_OS_VM_APP_NAME'] = 'perfocal'
-os.environ['MDSP_OS_VM_APP_VERSION'] = 'v1.0.0'
-os.environ['MDSP_KEY_STORE_CLIENT_ID'] = 'preindev-perfocal-v1.0.0'
-os.environ['MDSP_KEY_STORE_CLIENT_SECRET'] = 'hMo58t7wzL40s9lWOQH2ert1HeVoXRabWfe1j2cncdm'
+# os.environ['MINDSPHERE_CLIENT_ID'] = 'preindev-recordkeepingapp-v1.0.0'
+# os.environ['MINDSPHERE_CLIENT_SECRET'] = '8nfML0XtSTqc6B8My5NAToGIxoYyTvLPeHiiE4XrLGh'
+# os.environ['MINDSPHERE_TENANT'] = 'preindev'
+# os.environ['MDSP_HOST_TENANT'] = 'preindev'
+# os.environ['MDSP_USER_TENANT'] = 'preindev'
+# os.environ['MDSP_OS_VM_APP_NAME'] = 'recordkeepingapp'
+# os.environ['MDSP_OS_VM_APP_VERSION'] = 'v1.0.0'
+# os.environ['MDSP_KEY_STORE_CLIENT_ID'] = 'preindev-recordkeepingapp-v1.0.0'
+# os.environ['MDSP_KEY_STORE_CLIENT_SECRET'] = 'hMo58t7wzL40s9lWOQH2ert1HeVoXRabWfe1j2cncdm'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

@@ -1,1 +1,1 @@
-web: gunicorn PerformanceCalculator.wsgi --workers 2
+web: gunicorn --bind 0.0.0.0:$PORT Base.wsgi:application

@@ -1,34 +1,34 @@
 #!/bin/bash
- if [ -z "$VCAP_APP_PORT" ]; then
+ if [ -z "$PORT" ]; then
     SERVER_PORT=8000;
  else
-    SERVER_PORT="$VCAP_APP_PORT";
+    SERVER_PORT="$PORT";
  fi
-
- echo "fake migrations"
- python manage.py migrate --fake default zero
-
- echo "show migrations"
- python manage.py showmigrations
-
- echo "delete migrations"
- find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
-
- echo "make migrations"
- python manage.py makemigrations
-
- echo "migrate"
- python manage.py migrate --fake-initial
-
-  echo "make migrations"
- python manage.py makemigrations
-
- echo "sqlmigrate"
- python manage.py sqlmigrate 0001
-
- echo "inspect"
- python manage.py inspectdb
- > perfocal/models.py
+#
+# echo "fake migrations"
+# python manage.py migrate --fake default zero
+#
+# echo "show migrations"
+# python manage.py showmigrations
+#
+# echo "delete migrations"
+# find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+#
+# echo "make migrations"
+# python manage.py makemigrations
+#
+# echo "migrate"
+# python manage.py migrate --fake-initial
+#
+#  echo "make migrations"
+# python manage.py makemigrations
+#
+# echo "sqlmigrate"
+# python manage.py sqlmigrate 0001
+#
+# echo "inspect"
+# python manage.py inspectdb
+# > perfocal/models.py
 
  echo "collectstatic"
  python manage.py collectstatic --noinput

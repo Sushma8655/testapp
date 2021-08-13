@@ -1,24 +1,24 @@
 ---
 applications:
-  - name: perfocal
+  - name: recordkeepingapp
     memory: 1000MB
     instances: 1
     disk_quota: 1000MB
-    route: perforcal.apps.eu1.mindsphere.io
+    route: recordkeepingapp.apps.eu1.mindsphere.io
     buildpack: https://github.com/cloudfoundry/python-buildpack.git#v1.7.23
     command: bash ./run.sh
-    host: perfocal
-    env:
-      HOST_ENVIRONMENT: eu1 #If not specified, HOST_ENVIRONMENT defaults to eu1 in region Europe 1 SDK and to cn1 in region China 1 SDK.
-      MDSP_HOST_TENANT: preindev #tenant name on which application is hosted
-      MDSP_USER_TENANT: preindev  #tenant name which is using the application hosted on MDSP_HOST_TENANT
-      MDSP_OS_VM_APP_NAME: perfocal #internal name of application provided in Developer Cockpit
-      MDSP_OS_VM_APP_VERSION: v1.0.0 #application version provided in Developer Cockpit at a time of application creation.
-      MDSP_KEY_STORE_CLIENT_ID: preindev-perfocal-v1.0.0 #CLIENT_ID of application received from `App Credentials` in Developer Cockpit
-      MDSP_KEY_STORE_CLIENT_SECRET: kShGib6No1qIgHesYKXKKjJu921HIKSMyH1mygxo2j3 #CLIENT_SECRET of application received from `App Credentials` in Developer Cockpit
-      MINDSPHERE_CLIENT_ID: preindev-perfocal-v1.0.0
-      MINDSPHERE_CLIENT_SECRET: 8nfML0XtSTqc6B8My5NAToGIxoYyTvLPeHiiE4XrLGh
-      MINDSPHERE_TENANT: preindev
+    host: recordkeepingapp
+#    env:
+#      HOST_ENVIRONMENT: eu1 #If not specified, HOST_ENVIRONMENT defaults to eu1 in region Europe 1 SDK and to cn1 in region China 1 SDK.
+#      MDSP_HOST_TENANT: preindev #tenant name on which application is hosted
+#      MDSP_USER_TENANT: preindev  #tenant name which is using the application hosted on MDSP_HOST_TENANT
+#      MDSP_OS_VM_APP_NAME: recordkeepingapp #internal name of application provided in Developer Cockpit
+#      MDSP_OS_VM_APP_VERSION: v1.0.0 #application version provided in Developer Cockpit at a time of application creation.
+#      MDSP_KEY_STORE_CLIENT_ID: preindev-recordkeepingapp-v1.0.0 #CLIENT_ID of application received from `App Credentials` in Developer Cockpit
+#      MDSP_KEY_STORE_CLIENT_SECRET: kShGib6No1qIgHesYKXKKjJu921HIKSMyH1mygxo2j3 #CLIENT_SECRET of application received from `App Credentials` in Developer Cockpit
+#      MINDSPHERE_CLIENT_ID: preindev-recordkeepingapp-v1.0.0
+#      MINDSPHERE_CLIENT_SECRET: 8nfML0XtSTqc6B8My5NAToGIxoYyTvLPeHiiE4XrLGh
+#      MINDSPHERE_TENANT: preindev
   #   "configuration": {
   #     "mindsphereGateway": {
   #       "csrfProtectionDisabled": True
@@ -48,4 +48,4 @@ applications:
       # - https://github.com/cloudfoundry/nginx-buildpack
       #command: python manage.py
       # command: gunicorn perfocalapp.wsgi
-    # command: python manage.py migrate && gunicorn perfocal.wsgi
+    # command: python manage.py migrate && gunicorn recordkeepingapp.wsgi
