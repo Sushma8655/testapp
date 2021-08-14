@@ -15,8 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import dj_database_url
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -29,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'recordkeepingapp',
+    'recordkeeping',
 ]
 
 MIDDLEWARE = [
@@ -73,11 +71,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Base.wsgi.application'
 
-
- # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-DATABASES ={
-    'default' :  {
-        'ENGINE':'django.db.bakends.sqlite3',
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
 
     }
@@ -101,7 +98,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -115,14 +111,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-# os.environ['MINDSPHERE_CLIENT_ID'] = 'preindev-recordkeepingapp-v1.0.0'
+# os.environ['MINDSPHERE_CLIENT_ID'] = 'preindev-recordkeeping-v1.0.0'
 # os.environ['MINDSPHERE_CLIENT_SECRET'] = '8nfML0XtSTqc6B8My5NAToGIxoYyTvLPeHiiE4XrLGh'
 # os.environ['MINDSPHERE_TENANT'] = 'preindev'
 # os.environ['MDSP_HOST_TENANT'] = 'preindev'
 # os.environ['MDSP_USER_TENANT'] = 'preindev'
-# os.environ['MDSP_OS_VM_APP_NAME'] = 'recordkeepingapp'
+# os.environ['MDSP_OS_VM_APP_NAME'] = 'recordkeeping'
 # os.environ['MDSP_OS_VM_APP_VERSION'] = 'v1.0.0'
-# os.environ['MDSP_KEY_STORE_CLIENT_ID'] = 'preindev-recordkeepingapp-v1.0.0'
+# os.environ['MDSP_KEY_STORE_CLIENT_ID'] = 'preindev-recordkeeping-v1.0.0'
 # os.environ['MDSP_KEY_STORE_CLIENT_SECRET'] = 'hMo58t7wzL40s9lWOQH2ert1HeVoXRabWfe1j2cncdm'
 
 # Static files (CSS, JavaScript, Images)
